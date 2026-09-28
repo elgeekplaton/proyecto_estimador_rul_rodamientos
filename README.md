@@ -1,6 +1,6 @@
 # 🔧 Estimador de RUL de Rodamientos — XJTU-SY
 
-**Autor:** Pablo Zárate
+**Autor:** Pablo Zarate
 **Entrega:** Proyecto Final M7 — `zarate_pablo_estimador_rul_rodamientos.zip`
 
 Sistema de mantenimiento predictivo que estima la **vida útil remanente (RUL, *Remaining Useful Life*)** de rodamientos a partir de sus señales de vibración, combinando un **Random Forest** para predecir el RUL en minutos y un modelo **ARIMA(9,1,0)** para proyectar la evolución de la degradación.
