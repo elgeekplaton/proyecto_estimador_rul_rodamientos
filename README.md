@@ -58,7 +58,7 @@ Columnas: las 12 características que usa el modelo + `bearing`, `t` (minuto), `
 
 ### 4.1 Extracción de características
 
-Por cada snapshot y cada canal (horizontal `h_` y vertical `v_`) se calculan **22 características**, 44 en total:
+Por cada snapshot y cada canal (horizontal `h_` y vertical `v_`) se calculan **21 características**, 42 en total:
 
 - **Dominio del tiempo:** RMS, pico, pico a pico, curtosis, asimetría, factor de cresta, factor de forma y factor de impulso.
 - **Dominio de la frecuencia:** centroide espectral y energía logarítmica en 8 bandas de 0 a 12,8 kHz.
