@@ -45,7 +45,7 @@ Se utilizó el **XJTU-SY Bearing Dataset**, publicado por la Universidad Xi'an J
 
 > ⚠️ Por las reglas de la entrega, **el dataset completo no se incluye en el ZIP**. Puede descargarse desde el repositorio oficial: <https://github.com/WangBiaoXJTU/xjtu-sy-bearing-datasets>
 
-> Archivo comprimido en formato .zip, utilizado con los datasets crudos de los rodamientos 1_1, 1_2 y 1_3:  <https://drive.google.com/file/d/1CYhylmuhl_XZk8V3u1WLBtxzbNyUrDTv/view?usp=drive_link>
+> Archivo comprimido en formato .zip, utilizado en la versión completa del estimador, con los datasets crudos de los rodamientos 1_1, 1_2 y 1_3:  <https://drive.google.com/file/d/1CYhylmuhl_XZk8V3u1WLBtxzbNyUrDTv/view?usp=drive_link>
 
 ### 3.2 `datos_muestra.csv`
 
