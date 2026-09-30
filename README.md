@@ -91,7 +91,7 @@ Implementado en **`notebook_final_predictor_rul.ipynb`**.
 - Se modela la serie `log(1 + HI)` del rodamiento 1_2.
 - Con una ventana histórica de 30 minutos se ajusta un **ARIMA([1, 5],1,0)** con tendencia lineal y se proyectan los **15 minutos siguientes**, con un intervalo de confianza del 80 %.
 - Se evalúa en dos instantes: **t = 41** (FPT, inicio de la degradación) y **t = 115** (degradación avanzada).
-- El código incluye un respaldo automático a ARIMA(1,1,0) si el ajuste ARIMA([1, 5],1,0) no converge. En ambos instantes evaluados, **ARIMA([1, 5],1,0) convergió correctamente**.
+- El código incluye un respaldo automático a ARIMA(1,1,0) si el ajuste ARIMA([1, 5],1,0) no converge.
 
 ## 5. Resultados
 
@@ -106,12 +106,12 @@ Sobre `datos_muestra.csv` (notebook simplificado), el MAE es **6,39 min** en las
 
 **Interpretación:** en la fase final de vida de 1_2, el modelo estima cuántos minutos le quedan al rodamiento con un error medio de unos 6 minutos, lo que permite programar una intervención con margen suficiente antes de la falla.
 
-### 5.2 ARIMA(9,1,0) — Evolución del desgaste (1_2)
+### 5.2 ARIMA([1, 5],1,0) — Evolución del desgaste (1_2)
 
 | Instante de proyección | Orden usado | MAE de la proyección a 15 min (escala log(HI+1)) |
 |---|---|---|
-| t = 41 (FPT) | ARIMA(9,1,0) | 0,209 |
-| t = 115 (degradación avanzada) | ARIMA(9,1,0) | 0,100 |
+| t = 41 (FPT) | ARIMA([1, 5],1,0) | 0.188 |
+| t = 115 (degradación avanzada) | ARIMA([1, 5],1,0) | 0.376 |
 
 La proyección es más precisa en la fase avanzada, donde la tendencia de degradación ya está bien establecida.
 
@@ -149,7 +149,7 @@ zarate_pablo_estimador_rul_rodamientos.zip
 | `model.pkl` | Diccionario guardado con `joblib` que contiene el modelo (`modelo`), la lista de características (`features`), el tope de RUL (`rul_cap`) y metadatos de la partición train/test y del MAE obtenido. |
 | `app.py` + `notebook_final_app_interactiva.ipynb` | Interfaz web donde el usuario elige un caso de `datos_muestra.csv`, ve sus características y obtiene el RUL estimado junto al RUL real, indicando si el caso fue visto o no en el entrenamiento. |
 | `notebook_final_entrenar_modelo.ipynb` | Extracción de características, HI, FPT, selección de características, validación leave-one-bearing-out, entrenamiento final y generación de `model.pkl` y `datos_muestra.csv`. |
-| `notebook_final_predictor_rul.ipynb` | Recalcula las características desde los CSV crudos, predice el RUL de los tres rodamientos con `model.pkl` (Módulo A) y proyecta la degradación de 1_2 con **ARIMA(9,1,0)** (Módulo B). |
+| `notebook_final_predictor_rul.ipynb` | Recalcula las características desde los CSV crudos, predice el RUL de los tres rodamientos con `model.pkl` (Módulo A) y proyecta la degradación de 1_2 con **ARIMA([1, 5],1,0)** (Módulo B). |
 
 ## 7. Cómo ejecutar
 
