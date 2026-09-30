@@ -20,7 +20,7 @@ El mantenimiento tradicional es **correctivo** (se repara cuando falla) o **prev
 Construir un modelo de *machine learning* que:
 
 1. **Estime el RUL en minutos** de un rodamiento a partir de características extraídas de sus señales de vibración (**Módulo A — Random Forest**).
-2. **Proyecte la evolución del desgaste** a corto plazo mediante un indicador de salud (*Health Indicator*) y un modelo de series de tiempo (**Módulo B — ARIMA(9,1,0)**).
+2. **Proyecte la evolución del desgaste** a corto plazo mediante un indicador de salud (*Health Indicator*) y un modelo de series de tiempo (**Módulo B — ARIMA([1, 5],1,0)**).
 3. Pueda **consultarse desde una interfaz web** sencilla (Streamlit), como prueba de concepto de uso en un entorno industrial.
 
 ## 3. Datos
@@ -84,14 +84,14 @@ Características finales:
   - **Entrenamiento:** 1_1 completo + 1_3 completo + **70 % inicial** de 1_2 (post-FPT, t = 41 a 124).
   - **Test:** **30 % final** de 1_2 (t = 125 a 161, 37 puntos), sin solapamiento con el entrenamiento.
 
-### 4.4 Módulo B — Evolución del desgaste con ARIMA(9,1,0)
+### 4.4 Módulo B — Evolución del desgaste con ARIMA([1, 5],1,0)
 
 Implementado en **`notebook_final_predictor_rul.ipynb`**.
 
 - Se modela la serie `log(1 + HI)` del rodamiento 1_2.
-- Con una ventana histórica de 30 minutos se ajusta un **ARIMA(9,1,0)** con tendencia lineal y se proyectan los **15 minutos siguientes**, con un intervalo de confianza del 80 %.
+- Con una ventana histórica de 30 minutos se ajusta un **ARIMA([1, 5],1,0)** con tendencia lineal y se proyectan los **15 minutos siguientes**, con un intervalo de confianza del 80 %.
 - Se evalúa en dos instantes: **t = 41** (FPT, inicio de la degradación) y **t = 115** (degradación avanzada).
-- Como el orden 9 es alto para una ventana de 30 puntos, el código incluye un respaldo automático a ARIMA(1,1,0) si el ajuste no converge. En ambos instantes evaluados, **ARIMA(9,1,0) convergió correctamente**.
+- El código incluye un respaldo automático a ARIMA(1,1,0) si el ajuste ARIMA([1, 5],1,0) no converge. En ambos instantes evaluados, **ARIMA([1, 5],1,0) convergió correctamente**.
 
 ## 5. Resultados
 
