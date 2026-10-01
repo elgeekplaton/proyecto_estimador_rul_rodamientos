@@ -5,6 +5,8 @@
 
 Sistema de mantenimiento predictivo que estima la **vida útil remanente (RUL, *Remaining Useful Life*)** de rodamientos a partir de sus señales de vibración, combinando un **Random Forest** para predecir el RUL en minutos y un modelo **ARIMA([1,5],1,0)** para proyectar la evolución de la degradación.
 
+Link de video explicativo: <https://youtu.be/EYhuedFSuY8?si=4IsJ_h2MiVrProI8>
+
 ---
 
 ## 1. Problema
